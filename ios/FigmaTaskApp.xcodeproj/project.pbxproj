@@ -12,6 +12,8 @@
 		255D0CB346D9DBB8BDCB30F9 /* libPods-FigmaTaskApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D78E86B30CDFA298018083 /* libPods-FigmaTaskApp.a */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		4510170E3AC1441AB1C1D2E8 /* DMSerifText-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4612BE0E341A43029444799F /* DMSerifText-Italic.ttf */; };
+		7CF4A0B0F394494A88559A85 /* DMSerifText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 464F38C873D74074AB03CC01 /* DMSerifText-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		97D78E86B30CDFA298018083 /* libPods-FigmaTaskApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FigmaTaskApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E3C73971F06FCB07856255 /* Pods-FigmaTaskApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FigmaTaskApp.debug.xcconfig"; path = "Target Support Files/Pods-FigmaTaskApp/Pods-FigmaTaskApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		4612BE0E341A43029444799F /* DMSerifText-Italic.ttf */ = {isa = PBXFileReference; name = "DMSerifText-Italic.ttf"; path = "../assets/fonts/DMSerifText-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		464F38C873D74074AB03CC01 /* DMSerifText-Regular.ttf */ = {isa = PBXFileReference; name = "DMSerifText-Regular.ttf"; path = "../assets/fonts/DMSerifText-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				8DBF010EC788438684228557 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -87,6 +92,16 @@
 				13B07F961A680F5B00A75B9A /* FigmaTaskApp.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8DBF010EC788438684228557 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4612BE0E341A43029444799F /* DMSerifText-Italic.ttf */,
+				464F38C873D74074AB03CC01 /* DMSerifText-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -161,6 +176,8 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				1D89AFF8304E7DEB1039E657 /* PrivacyInfo.xcprivacy in Resources */,
+				4510170E3AC1441AB1C1D2E8 /* DMSerifText-Italic.ttf in Resources */,
+				7CF4A0B0F394494A88559A85 /* DMSerifText-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

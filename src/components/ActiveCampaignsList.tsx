@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet, Image, Dimensions } from 'react-native';
+import TextHeading from './TextHeading';
 
 const { width } = Dimensions.get('window');
 
@@ -21,7 +22,7 @@ export const ActiveCampaignsList: React.FC<ActiveCampaignsListProps> = ({ title 
   return (
     <View style={styles.wrapper}>
       <View style={styles.headingRow}>
-        <Text style={styles.heading}>{title}</Text>
+        <TextHeading style={styles.heading}>{title}</TextHeading>
         <View style={styles.countBadge}>
           <Text style={styles.countText}>{items.length}</Text>
         </View>
@@ -46,7 +47,7 @@ export const ActiveCampaignsList: React.FC<ActiveCampaignsListProps> = ({ title 
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginTop: 16,
+    marginTop: 20,
   },
   headingRow: {
     flexDirection: 'row',
@@ -56,17 +57,18 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   heading: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: '700',
     color: '#000000',
     marginRight: 8,
+    fontFamily: 'DMSerifText-Regular',
   },
   countBadge: {
     width: 20,
     height: 20,
     borderRadius: 10,
     backgroundColor: 'transparent',
-    borderWidth: 1.5,
+    borderWidth: 1,
     borderColor: '#1D4ED8',
     alignItems: 'center',
     justifyContent: 'center',
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
   countText: {
     color: '#1D4ED8',
     fontSize: 12,
-    fontWeight: '700',
+    fontWeight: '500',
   },
   image: {
     borderRadius: 14,

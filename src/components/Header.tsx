@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 type HeaderProps = {
   onWalletPress?: () => void;
@@ -11,10 +12,10 @@ export const Header: React.FC<HeaderProps> = ({ onWalletPress }) => {
       <Text style={styles.title}>Brands</Text>
       <View style={styles.actions}>
         <TouchableOpacity accessibilityRole="button" onPress={onWalletPress} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
-          <Text style={styles.walletIcon}>👛</Text>
+          <MaterialCommunityIcons name="wallet-outline" size={22} color="#111" />
         </TouchableOpacity>
         <TouchableOpacity accessibilityRole="button" onPress={() => {}} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }} style={styles.settingsButton}>
-          <Text style={styles.settingsIcon}>⚙️</Text>
+          <MaterialCommunityIcons name="cog-outline" size={22} color="#111" />
         </TouchableOpacity>
       </View>
     </View>
@@ -34,6 +35,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '700',
     color: '#000000',
+    fontFamily: 'DMSerifText-Regular',
   },
   actions: {
     flexDirection: 'row',
