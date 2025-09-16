@@ -11,10 +11,23 @@ export const Header: React.FC<HeaderProps> = ({ onWalletPress }) => {
     <View style={styles.container}>
       <Text style={styles.title}>Brands</Text>
       <View style={styles.actions}>
-        <TouchableOpacity accessibilityRole="button" onPress={onWalletPress} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
-          <MaterialCommunityIcons name="wallet-outline" size={22} color="#111" />
+        <TouchableOpacity
+          accessibilityRole="button"
+          onPress={onWalletPress}
+          hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+        >
+          <MaterialCommunityIcons
+            name="wallet-outline"
+            size={22}
+            color="#111"
+          />
         </TouchableOpacity>
-        <TouchableOpacity accessibilityRole="button" onPress={() => {}} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }} style={styles.settingsButton}>
+        <TouchableOpacity
+          accessibilityRole="button"
+          onPress={() => {}}
+          hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+          style={styles.settingsButton}
+        >
           <MaterialCommunityIcons name="cog-outline" size={22} color="#111" />
         </TouchableOpacity>
       </View>
@@ -53,4 +66,3 @@ const styles = StyleSheet.create({
 });
 
 export default Header;
-

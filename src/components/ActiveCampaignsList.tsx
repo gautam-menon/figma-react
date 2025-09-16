@@ -1,8 +1,11 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet, Image, Dimensions } from 'react-native';
-import TextHeading from './TextHeading';
-
-const { width } = Dimensions.get('window');
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  Image,
+} from 'react-native';
 
 export type CampaignItem = {
   id: string;
@@ -15,29 +18,36 @@ type ActiveCampaignsListProps = {
   items: CampaignItem[];
 };
 
-export const ActiveCampaignsList: React.FC<ActiveCampaignsListProps> = ({ title = 'Active campaigns', items }) => {
+export const ActiveCampaignsList: React.FC<ActiveCampaignsListProps> = ({
+  title = 'Active campaigns',
+  items,
+}) => {
   const ITEM_SIZE = 96; // square
   const ITEM_SPACING = 12;
 
   return (
     <View style={styles.wrapper}>
       <View style={styles.headingRow}>
-        <TextHeading style={styles.heading}>{title}</TextHeading>
+        <Text style={styles.heading}>{title}</Text>
         <View style={styles.countBadge}>
           <Text style={styles.countText}>{items.length}</Text>
         </View>
       </View>
       <FlatList
         data={items}
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ paddingHorizontal: 16 }}
         ItemSeparatorComponent={() => <View style={{ width: ITEM_SPACING }} />}
         renderItem={({ item }) => (
           <View style={{ width: ITEM_SIZE }}>
-            <Image source={{ uri: item.imageUrl }} style={[styles.image, { width: ITEM_SIZE, height: ITEM_SIZE }]} />
-            <Text style={styles.itemTitle} numberOfLines={1}>{item.title}</Text>
+            <Image
+              source={{ uri: item.imageUrl }}
+              style={[styles.image, { width: ITEM_SIZE, height: ITEM_SIZE }]} />
+            <Text style={styles.itemTitle} numberOfLines={1}>
+              {item.title}
+            </Text>
           </View>
         )}
       />
@@ -47,7 +57,7 @@ export const ActiveCampaignsList: React.FC<ActiveCampaignsListProps> = ({ title 
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginTop: 20,
+    marginTop: 16,
   },
   headingRow: {
     flexDirection: 'row',
@@ -57,11 +67,10 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   heading: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '700',
     color: '#000000',
     marginRight: 8,
-    fontFamily: 'DMSerifText-Regular',
   },
   countBadge: {
     width: 20,

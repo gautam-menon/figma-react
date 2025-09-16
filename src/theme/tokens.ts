@@ -32,5 +32,3 @@ export const typography = {
   headingSize: 20,
   headingFontFamily: 'DMSerifText-Regular',
 };
-
-

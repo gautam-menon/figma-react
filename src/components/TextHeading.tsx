@@ -2,7 +2,11 @@ import React from 'react';
 import { Text, TextProps, StyleSheet } from 'react-native';
 import { colors, typography } from '../theme/tokens';
 
-export const TextHeading: React.FC<TextProps> = ({ style, children, ...rest }) => {
+export const TextHeading: React.FC<TextProps> = ({
+  style,
+  children,
+  ...rest
+}) => {
   return (
     <Text {...rest} style={[styles.heading, style]}>
       {children}
@@ -20,5 +24,3 @@ const styles = StyleSheet.create({
 });
 
 export default TextHeading;
-
-

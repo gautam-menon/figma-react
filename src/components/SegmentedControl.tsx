@@ -1,5 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Animated, Easing } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Animated,
+  Easing,
+} from 'react-native';
 
 type SegmentedControlProps = {
   segments: string[];
@@ -7,13 +14,19 @@ type SegmentedControlProps = {
   onChange: (index: number) => void;
 };
 
-export const SegmentedControl: React.FC<SegmentedControlProps> = ({ segments, currentIndex, onChange }) => {
+export const SegmentedControl: React.FC<SegmentedControlProps> = ({
+  segments,
+  currentIndex,
+  onChange,
+}) => {
   const [containerWidth, setContainerWidth] = useState(0);
   const translateX = useRef(new Animated.Value(0)).current;
 
   const segmentWidth = useMemo(() => {
     const horizontalPadding = 8; // padding: 4 on each side from container
-    return segments.length > 0 ? (Math.max(containerWidth - horizontalPadding, 0) / segments.length) : 0;
+    return segments.length > 0
+      ? Math.max(containerWidth - horizontalPadding, 0) / segments.length
+      : 0;
   }, [containerWidth, segments.length]);
 
   useEffect(() => {
@@ -57,7 +70,11 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({ segments, cu
             accessibilityState={{ selected: isActive }}
             activeOpacity={0.8}
           >
-            <Text style={[styles.segmentText, isActive && styles.segmentTextActive]}>{label}</Text>
+            <Text
+              style={[styles.segmentText, isActive && styles.segmentTextActive]}
+            >
+              {label}
+            </Text>
           </TouchableOpacity>
         );
       })}
@@ -98,4 +115,3 @@ const styles = StyleSheet.create({
 });
 
 export default SegmentedControl;
-

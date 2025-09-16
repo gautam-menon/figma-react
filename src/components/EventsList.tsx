@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  FlatList,
+  TouchableOpacity,
+} from 'react-native';
 import TextHeading from './TextHeading';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -21,41 +28,68 @@ type EventsListProps = {
   titleIconSize?: number;
 };
 
-export const EventsList: React.FC<EventsListProps> = ({ title = 'Events', items, onSeeAllPress, showSeeAll = true, scrollEnabled = false, variant = 'default', titleIconSize = 22 }) => {
+export const EventsList: React.FC<EventsListProps> = ({
+  title = 'Events',
+  items,
+  onSeeAllPress,
+  showSeeAll = true,
+  scrollEnabled = false,
+  variant = 'default',
+  titleIconSize = 22,
+}) => {
   const isPlain = variant === 'plain';
+
+  const renderTile = (item: EventItem) => (
+    <View key={item.id} style={styles.tile}>
+      <Image source={{ uri: item.imageUrl }} style={styles.tileImage} />
+      <View style={styles.tileContent}>
+        <View style={styles.row}>
+          <MaterialCommunityIcons name="ticket-outline" size={titleIconSize} color="#111" />
+          <Text style={styles.rowText} numberOfLines={1}> {item.name}</Text>
+        </View>
+        <View style={styles.row}>
+          <MaterialCommunityIcons name="calendar-outline" size={20} color="#555" />
+          <Text style={styles.rowSubText} numberOfLines={1}> {item.date}</Text>
+        </View>
+        <View style={styles.row}>
+          <MaterialCommunityIcons name="map-marker-outline" size={20} color="#555" />
+          <Text style={styles.rowSubText} numberOfLines={1}> {item.location}</Text>
+        </View>
+      </View>
+    </View>
+  );
+
   return (
     <View style={styles.wrapper}>
       {!isPlain && <TextHeading style={styles.heading}>{title}</TextHeading>}
       <View style={isPlain ? undefined : styles.sectionCard}>
-        <FlatList
-          data={items}
-          keyExtractor={(item) => item.id}
-          scrollEnabled={scrollEnabled}
-          contentContainerStyle={isPlain ? { paddingHorizontal: 16 } : undefined}
-          ItemSeparatorComponent={() => <View style={styles.divider} />}
-          renderItem={({ item }) => (
-            <View style={styles.tile}>
-              <Image source={{ uri: item.imageUrl }} style={styles.tileImage} />
-              <View style={styles.tileContent}>
-                <View style={styles.row}>
-                  <MaterialCommunityIcons name="ticket-outline" size={titleIconSize} color="#111" />
-                  <Text style={styles.rowText} numberOfLines={1}> {item.name}</Text>
-                </View>
-                <View style={styles.row}>
-                  <MaterialCommunityIcons name="calendar-outline" size={20} color="#555" />
-                  <Text style={styles.rowSubText} numberOfLines={1}> {item.date}</Text>
-                </View>
-                <View style={styles.row}>
-                  <MaterialCommunityIcons name="map-marker-outline" size={20} color="#555" />
-                  <Text style={styles.rowSubText} numberOfLines={1}> {item.location}</Text>
-                </View>
-              </View>
-            </View>
-          )}
-        />
+        {scrollEnabled ? (
+          <FlatList
+            data={items}
+            keyExtractor={item => item.id}
+            scrollEnabled
+            contentContainerStyle={isPlain ? { paddingHorizontal: 16, paddingBottom: 24 } : { paddingBottom: 24 }}
+            ItemSeparatorComponent={() => <View style={styles.divider} />}
+            renderItem={({ item }) => renderTile(item)}
+          />
+        ) : (
+          <View style={isPlain ? { paddingHorizontal: 16 } : undefined}>
+            {items.map((item, idx) => (
+              <React.Fragment key={item.id}>
+                {renderTile(item)}
+                {idx < items.length - 1 && <View style={styles.divider} />}
+              </React.Fragment>
+            ))}
+          </View>
+        )}
       </View>
       {showSeeAll && !isPlain && (
-        <TouchableOpacity style={styles.seeAllButton} onPress={onSeeAllPress} accessibilityRole="button" activeOpacity={0.85}>
+        <TouchableOpacity
+          style={styles.seeAllButton}
+          onPress={onSeeAllPress}
+          accessibilityRole="button"
+          activeOpacity={0.85}
+        >
           <View style={styles.seeAllButtonRow}>
             <Text style={styles.seeAllButtonText}>See all</Text>
             <MaterialCommunityIcons name="chevron-right" size={20} color="#FFFFFF" style={{ marginLeft: 8 }} />
@@ -159,5 +193,3 @@ const styles = StyleSheet.create({
 });
 
 export default EventsList;
-
-

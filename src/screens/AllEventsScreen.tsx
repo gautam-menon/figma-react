@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import EventsList, { EventItem } from '../components/EventsList';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
@@ -11,7 +11,13 @@ export const AllEventsScreen: React.FC<Props> = ({ route }) => {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={{ paddingBottom: 24 }}>
-        <EventsList title="" items={events} showSeeAll={false} variant="plain" titleIconSize={26} />
+        <EventsList
+          title=""
+          items={events}
+          showSeeAll={false}
+          variant="plain"
+          titleIconSize={26}
+        />
       </ScrollView>
     </View>
   );
@@ -29,5 +35,3 @@ const styles = StyleSheet.create({
 });
 
 export default AllEventsScreen;
-
-
